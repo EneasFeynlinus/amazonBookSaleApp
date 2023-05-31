@@ -9,30 +9,40 @@ const books = [
     title:
       "The Legend of Zelda™: Tears of the Kingdom – The Complete Official Guide: Collector's Edition",
     image: './images/theLegendOfZelda.jpg',
+    id: 1,
   },
-  
+
   {
     author: 'Dr. Seuss',
     title: "Oh, the Places You'll Go!",
     image: './images/secondBook.jpg',
+    id: 2,
   },
-  
+
   {
     author: ' James Clear',
     title: 'Atomic Habits',
     image: './images/atomicHabits.jpg',
+    id: 3,
   },
-  
+
   {
     author: 'Peter Attia',
     title: 'Outlive',
     image: './images/outlive.jpg',
+    id: 4,
   },
 ]
 
 const BookList = () => {
   return (
-    <section className="booklist">{newEquipments}</section>
+    <section className="booklist">
+      {books.map((book) => {
+        const { image, title, author } = book
+
+        return <Book author={author} title={title} img={image} />
+      })}
+    </section>
   )
 }
 
