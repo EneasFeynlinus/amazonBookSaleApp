@@ -1385,7 +1385,8 @@ const Book = (props) => {
 
 #### Import and Export Statements
 
-- remove all getBook code
+- remove all getBook code (The whole getBook from Booklist component you just created)
+  we have the model without the bookList function.
 
 ```js
 function BookList() {
