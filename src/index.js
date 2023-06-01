@@ -35,29 +35,29 @@ const books = [
 ]
 
 const BookList = () => {
-  const someValue = 'shakeAndBake'
-  const displayValue = () => {
-    console.log(someValue)
+  const getBook = (id) => {
+    const findBook = books.filter((book) => book.id === id)
+    console.log(findBook)
   }
+
   return (
     <section className="booklist">
       {/* <EventExamples /> */}
       {books.map((book) => {
-        return <Book {...book} key={book.id} displayValue={displayValue} />
+        return <Book {...book} key={book.id} getBook={getBook} />
       })}
-      <someComponent someValue={someValue} />
     </section>
   )
 }
 
 const Book = (props) => {
-  const { author, title, image, displayValue } = props
-
+  const { author, title, image, getBook } = props
+  console.log(props)
   return (
     <article className="book">
       <img src={image} alt={title} />
       <h2>{title}</h2>
-      <button onClick={displayValue}>Click me</button>
+      <button onClick={getBook}>Click me</button>
       <h4>{author}</h4>
     </article>
   )
