@@ -35,55 +35,29 @@ const books = [
 ]
 
 const BookList = () => {
+  const someValue = 'shakeAndBake'
+  const displayValue = () => {
+    console.log(someValue)
+  }
   return (
     <section className="booklist">
-      <EventExamples />
+      {/* <EventExamples /> */}
       {books.map((book) => {
-        return <Book {...book} key={book.id} />
+        return <Book {...book} key={book.id} displayValue={displayValue} />
       })}
-    </section>
-  )
-}
-
-const EventExamples = () => {
-  const handleFormInput = (event) => {
-    console.log(event.target)
-    console.log(event.target.name)
-    // console.log(event.target.value)
-  }
-  const handleButtonClick = () => {
-    alert('handle button click')
-  }
-  const handleFormSubmition = (event) => {
-    event.preventDefault()
-    console.log('form submitted.')
-  }
-  return (
-    <section>
-      <form onSubmit={handleFormSubmition}>
-        <h2>Typical Form</h2>
-        <input
-          type="text"
-          name="example"
-          onChange={handleFormInput}
-          style={{ margin: '1rem 0' }}
-        />
-      </form>
-      <button type="button">Submit</button>
-      <button onClick={handleButtonClick} type="button">
-        Click me
-      </button>
+      <someComponent someValue={someValue} />
     </section>
   )
 }
 
 const Book = (props) => {
-  const { author, title, image } = props
-  console.log(props)
+  const { author, title, image, displayValue } = props
+
   return (
     <article className="book">
       <img src={image} alt={title} />
       <h2>{title}</h2>
+      <button onClick={displayValue}>Click me</button>
       <h4>{author}</h4>
     </article>
   )
